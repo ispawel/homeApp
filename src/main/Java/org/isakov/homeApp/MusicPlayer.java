@@ -1,17 +1,41 @@
 package org.isakov.homeApp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MusicPlayer {
-    private Music music;
+    private List<Music> musicList = new ArrayList<>();
+    private String name;
+    private int volume;
 
 
-    //IoC
-    public MusicPlayer(Music music){
-        this.music = music;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void playMusic(){
-        System.out.println("Playing " + music.getSong());
+    public int getVolume() {
+        return volume;
+    }
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
 
+
+    // Empty Constructor
+    public MusicPlayer(){}
+
+    // Setter
+    public void setMusicList(List<Music> musicList) {
+        this.musicList = musicList;
+    }
+
+    public void playMusics() {
+        for(Music music : musicList) {
+            System.out.println("Playing: " + music.getSong());
+        }
     }
 
 }

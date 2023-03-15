@@ -10,12 +10,13 @@ public class TestSpring {
                 "applicationContext.xml"
         );
 
-        // Получаение обьекта
-        Music music = context.getBean("musicBean", Music.class);
+        // Получаение обьекта в ручную
+        // Music music = context.getBean("musicBean", Music.class);
+        // MusicPlayer musicPlayer = new MusicPlayer(music);
 
-        MusicPlayer musicPlayer = new MusicPlayer(music);
-
-        musicPlayer.playMusic();
+        // Аавтоматическое получение обьекта
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+        musicPlayer.playMusics();
 
         // Обязатеьное закрытие ApplicationContext
         context.close();
